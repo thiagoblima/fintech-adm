@@ -6,7 +6,10 @@ server/environments/build.dev.ts
 
 ## definitely types
 models/*
+middleware/*
 test/*
 environments/*
 app.js
 app.d.ts
+server.js
+server.d.ts
