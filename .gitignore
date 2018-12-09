@@ -1,0 +1,12 @@
+## npm packages
+node_modules
+
+## environment settings
+server/environments/build.dev.ts
+
+## definitely types
+models/*
+test/*
+environments/*
+app.js
+app.d.ts
