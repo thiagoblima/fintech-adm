@@ -6,12 +6,13 @@
 
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import * as fs from 'fs';
 import { User } from '../models/user.model';
 import { LoggerService } from '../middleware/logger.service';
+import { UtilsAPI } from './utills.route';
 
-export class UserAPI {
+export class UserAPI extends UtilsAPI{
     constructor(private app: express.Router) {
+        super();
         this.bodyParserInit(app);
     }
 
@@ -64,21 +65,6 @@ export class UserAPI {
             }
     }
 
-    async readFileAsync(filename: string): Promise<any> {
-        return new Promise((resolve, reject) => {
-            fs.readFile(filename, async (err, result) => {
-                if (err) reject(err);
-                else await resolve(result);
-            });
-        });
-    }
-
-    async loadJSONAsync(filename: string): Promise<User> {
-        return this.readFileAsync(filename) 
-            .then(async (res) => {
-                return await JSON.parse(res);
-            }).catch(err => JSON.parse(err));
-    }
 }
 
 const userRouter = new UserAPI(express.Router());

@@ -19,8 +19,8 @@ import { LoggerService } from './middleware/logger.service';
      public buildDev;
      public server;
      public loggerService;
-     constructor({ ...attr }){
-         this.buildDev = new BuildDev({ ...attr });
+     constructor(...attr){
+         this.buildDev = new BuildDev(...attr);
          this.server = new Server(express(), this.getInitServer());
          this.loggerData().getLogResultData(`Microservice listening on:`, { port: `${this.initServer()}` });
      }
