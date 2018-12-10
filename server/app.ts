@@ -6,7 +6,8 @@
 
 import * as express from "express";
 import { Server } from './server'; 
-
+import { BuildDev } from './environment/build.dev';
+import { LoggerService } from './middleware/logger.service';
 
 /**
  * Initing a server at port
@@ -14,14 +15,29 @@ import { Server } from './server';
  * @param: port { Number } 
  */
 
+ export class App {
+     public buildDev;
+     public server;
+     public loggerService;
+     constructor({ ...attr }){
+         this.buildDev = new BuildDev({ ...attr });
+         this.server = new Server(express(), this.getInitServer());
+         this.loggerData().getLogResultData(`Microservice listening on:`, { port: `${this.initServer()}` });
+     }
 
-const port = 3412; 
-const server = new Server(express(), port);
+     private initServer(): number & {} {
+         const port = this.buildDev.options.port; 
+         return port;
+     }
 
-/**
- * @method     : { server.run() } 
- * @description: connect database and run
- */
+     public getInitServer(): number & {} {
+        return this.initServer();
+     }
 
-server.run();
-console.info(`listening on ${port}`);
+     public loggerData() {
+         return new LoggerService({});
+     }
+ }
+
+const app = new App({});
+app.server.run();

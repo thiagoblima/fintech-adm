@@ -31,7 +31,7 @@
     "angular-route": "1.6.7",
     "angular-sanitize": "1.6.7",
     "angular-ui-mask": "1.6.7",
-    "bootstrap": "3.3.7",
+    "bootstrap": "*",
     "gsap": "^1.20.3",
     "jquery": "*",
     "@types/bcrypt": "^1.0.0",
