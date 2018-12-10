@@ -52,12 +52,11 @@ export class UserAPI {
      */
 
     public getAllUsers() {
-        return this.app.get(
-            "/users", (req: express.Request, res: express.Response) => {
+        return (req: express.Request, res: express.Response) => {
                this.loadJSONAsync('./database/users.collection.json')
-               .then(async users => await res.status(200).json(users))
+               .then(async (users: User) => await res.status(200).json(users))
                .catch(err => res.status(500).json(err));
-            })
+            }
     }
 
     async readFileAsync(filename: string): Promise<any> {
@@ -69,7 +68,7 @@ export class UserAPI {
         });
     }
 
-    async loadJSONAsync(filename: string): Promise<JSON> {
+    async loadJSONAsync(filename: string): Promise<User> {
         return this.readFileAsync(filename) 
             .then(async (res) => {
                 return await JSON.parse(res);

@@ -84,7 +84,7 @@ var UserAPI = /** @class */ (function () {
      */
     UserAPI.prototype.getAllUsers = function () {
         var _this = this;
-        return this.app.get("/users", function (req, res) {
+        return function (req, res) {
             _this.loadJSONAsync('./database/users.collection.json')
                 .then(function (users) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -93,7 +93,7 @@ var UserAPI = /** @class */ (function () {
                 }
             }); }); })
                 .catch(function (err) { return res.status(500).json(err); });
-        });
+        };
     };
     UserAPI.prototype.readFileAsync = function (filename) {
         return __awaiter(this, void 0, void 0, function () {

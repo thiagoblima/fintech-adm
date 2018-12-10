@@ -4,11 +4,12 @@
  * @description: User REST API, all user auth endpoints.
  */
 import * as express from "express";
+import { User } from "../models/user.model";
 export declare class UserAPI {
     private app;
     constructor(app: express.Router);
     bodyParserInit(app: express.Router): void;
-    setUserApis(): express.Router[];
+    setUserApis(): ((req: express.Request, res: express.Response) => void)[];
     /**
      * @prop       : authorization
      * @param      : headers
@@ -21,9 +22,9 @@ export declare class UserAPI {
      * @param {Object} req HTTP request object.
      * @param {Object} res HTTP response object.
      */
-    getAllUsers(): express.Router;
+    getAllUsers(): (req: express.Request, res: express.Response) => void;
     readFileAsync(filename: string): Promise<any>;
-    loadJSONAsync(filename: string): Promise<JSON>;
+    loadJSONAsync(filename: string): Promise<User>;
 }
 declare const userRouter: UserAPI;
 export default userRouter;

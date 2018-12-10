@@ -5,7 +5,6 @@
  */
 
 import * as express from "express";
-import * as bodyParser from "body-parser";
 import userRouter from './routes/user.route'
 import requestLogger from "./middleware/requestLogger";
 
