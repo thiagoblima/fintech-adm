@@ -1,19 +1,20 @@
 /**
- * @name       : userRouter
+ * @name       : alertRouter
  * @author     : <thiagolimasp@live.com> Thiago Lima
- * @description: User REST API, all user auth endpoints.
+ * @description: Alert REST API, all user auth endpoints.
  */
 
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import { Product } from '../models/product.interface';
+import { Alert } from '../models/alert.interface';
 import { LoggerService } from '../middleware/logger.service';
 import { UtilsAPI } from './utills.route';
 
-export class ProductAPI extends UtilsAPI {
+export class AlertAPI extends UtilsAPI {
     constructor(private app: express.Router) {
         super();
         this.bodyParserInit(app);
+        
     }
 
     public bodyParserInit(app: express.Router): void {
@@ -21,9 +22,9 @@ export class ProductAPI extends UtilsAPI {
         this.app.use(bodyParser.json());
     }
 
-    public setProductApis() {
+    public setAlertApis() {
         return [
-            this.getAllProducts()
+            this.getAllAlerts()
         ];
     }
 
@@ -46,13 +47,13 @@ export class ProductAPI extends UtilsAPI {
      * @param {Object} res HTTP response object.
      */
 
-    public getAllProducts() {
+    public getAllAlerts() {
         const loggerService = new LoggerService({});
         return (req: express.Request, res: express.Response) => {
-               this.loadJSONAsync('./database/products.collection.json')
-               .then(async (products: Product) =>{
-                    await res.status(200).json(products);
-                    await loggerService.getLogResultData('consuming users api: ', products);
+               this.loadJSONAsync('./database/alerts.collection.json')
+               .then(async (alerts: Alert) =>{
+                    await res.status(200).json(alerts);
+                    await loggerService.getLogResultData('consuming alerts api: ', alerts);
                })
                .catch(err => res.status(500).json(err));
             }
@@ -60,6 +61,6 @@ export class ProductAPI extends UtilsAPI {
 
 }
 
-const productRouter = new ProductAPI(express.Router());
+const alertRouter = new AlertAPI(express.Router());
 
-export default productRouter;
+export default alertRouter;

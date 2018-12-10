@@ -7,6 +7,7 @@
 import * as express from "express";
 import userRouter from './routes/user.route';
 import productRouter from './routes/product.route';
+import alertRouter from './routes/alert.route';
 import requestLogger from "./middleware/requestLogger";
 
 export class Server {
@@ -18,6 +19,7 @@ export class Server {
     this.configureMiddleware(app);
     this.configureUserRoutes(app);
     this.configureProductRoutes(app);
+    this.configureAlertRoutes(app);
   }
 
   private configureMiddleware(app: express.Express) {
@@ -32,6 +34,12 @@ export class Server {
   private configureProductRoutes(app: express.Router) {
    app.use('/products', productRouter.setProductApis());
    app.get('/get', productRouter.getAllProducts());
+  }
+
+
+  private configureAlertRoutes(app: express.Router) {
+    app.use('/alerts', alertRouter.setAlertApis());
+    app.get('/get', alertRouter.getAllAlerts());
   }
 
   /**
