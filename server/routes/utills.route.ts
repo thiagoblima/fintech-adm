@@ -25,5 +25,4 @@ export class UtilsAPI {
             }).catch(err => JSON.parse(err));
     }
 
-
 }
