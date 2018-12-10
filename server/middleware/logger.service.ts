@@ -16,7 +16,7 @@ export class LoggerService implements LoggerModel {
         this.data = attr.data;
     }
     private log(msg: string, data: {}): void {
-        console.log(msg, data);
+        console.log(msg + '\n', data);
     }
 
     private simpleLog(msg: String) {
