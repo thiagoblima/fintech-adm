@@ -6,6 +6,7 @@ server/environments/build.dev.ts
 
 ## definitely types
 models/*
+routes/*
 middleware/*
 test/*
 environments/*
