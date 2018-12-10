@@ -4,10 +4,11 @@
  * @description: User REST API, all user auth endpoints.
  */
 
-import * as express from "express";
-import * as bodyParser from "body-parser";
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
 import * as fs from 'fs';
-import { User } from "../models/user.model";
+import { User } from '../models/user.model';
+import { LoggerService } from '../middleware/logger.service';
 
 export class UserAPI {
     constructor(private app: express.Router) {
@@ -52,9 +53,13 @@ export class UserAPI {
      */
 
     public getAllUsers() {
+        const loggerService = new LoggerService({});
         return (req: express.Request, res: express.Response) => {
                this.loadJSONAsync('./database/users.collection.json')
-               .then(async (users: User) => await res.status(200).json(users))
+               .then(async (users: User) =>{
+                    await res.status(200).json(users);
+                    await loggerService.getLogResultData('consuming users api: ', users);
+               })
                .catch(err => res.status(500).json(err));
             }
     }
