@@ -5,6 +5,8 @@
  */
 
 import * as express from "express";
+import * as bodyParser from "body-parser";
+import userRouter from './routes/user.route'
 import requestLogger from "./middleware/requestLogger";
 
 export class Server {
@@ -21,7 +23,9 @@ export class Server {
     app.use(requestLogger);
   }
 
-  private configureRoutes(app: express.Express) {
+  private configureRoutes(app: express.Router) {
+    app.use('/api', userRouter.setUserApis());
+    app.get("/users", userRouter.getAllUsers());
   }
 
   /**

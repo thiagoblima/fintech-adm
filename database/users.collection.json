@@ -1,0 +1,58 @@
+{
+    "users": [
+        {
+            "firstName": "pablo",
+            "lastName": "luis",
+            "preferredName": "pablo",
+            "email": "pablo@escolar.com.br",
+            "age": "33",
+            "gender": "male",
+            "photo": "pablo.png"
+        },
+        {
+            "firstName": "felipe",
+            "lastName": "braganca",
+            "preferredName": "felipe",
+            "email": "felipe@escolar.com.br",
+            "age": "37",
+            "gender": "male",
+            "photo": "felipe.png"
+        },
+        {
+            "firstName": "aloísio",
+            "lastName": "faguntes",
+            "preferredName": "aloísio",
+            "email": "aloísio@escolar.com.br",
+            "age": "23",
+            "gender": "male",
+            "photo": "aloisio.png"
+        },
+        {
+            "firstName": "joao",
+            "lastName": "paulo",
+            "preferredName": "joao",
+            "email": "joao@escolar.com.br",
+            "age": "19",
+            "gender": "male",
+            "photo": "joao.png"
+        },
+        {
+            "firstName": "amanda",
+            "lastName": "carolina",
+            "preferredName": "amanda",
+            "email": "amanda@escolar.com.br",
+            "age": "37",
+            "gender": "female",
+            "photo": "amanda.png"
+        },
+        {
+            "firstName": "lucia",
+            "lastName": "vitoria",
+            "preferredName": "lucia",
+            "email": "lucia@escolar.com.br",
+            "age": "30",
+            "gender": "female",
+            "photo": "lucia.png"
+        }
+    ]
+}

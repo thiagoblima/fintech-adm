@@ -6,7 +6,7 @@
 
 import * as express from "express";
 import { Server } from './server'; 
-import { BuildDev } from './environment/build.dev';
+import { BuildDev } from './environments/build.dev';
 import { LoggerService } from './middleware/logger.service';
 
 /**
