@@ -10,6 +10,7 @@ routes/*
 middleware/*
 test/*
 environments/*
+database/*
 app.js
 app.d.ts
 server.js
