@@ -1,7 +1,7 @@
 /**
  * @name       : utilsRouter
  * @author     : <thiagolimasp@live.com> Thiago Lima
- * @description: User REST API, all user auth endpoints.
+ * @description: Utils REST API, all utils services endpoints.
  */
 
 import * as fs from 'fs';
