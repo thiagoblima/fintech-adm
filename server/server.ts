@@ -5,7 +5,8 @@
  */
 
 import * as express from "express";
-import userRouter from './routes/user.route'
+import userRouter from './routes/user.route';
+import productRouter from './routes/product.route';
 import requestLogger from "./middleware/requestLogger";
 
 export class Server {
@@ -15,16 +16,22 @@ export class Server {
    */
   constructor(private app: express.Express, private port: number) {
     this.configureMiddleware(app);
-    this.configureRoutes(app);
+    this.configureUserRoutes(app);
+    this.configureProductRoutes(app);
   }
 
   private configureMiddleware(app: express.Express) {
     app.use(requestLogger);
   }
 
-  private configureRoutes(app: express.Router) {
-    app.use('/api', userRouter.setUserApis());
-    app.get("/users", userRouter.getAllUsers());
+  private configureUserRoutes(app: express.Router) {
+    app.use('/users', userRouter.setUserApis());
+    app.get('/get', userRouter.getAllUsers());
+  }
+
+  private configureProductRoutes(app: express.Router) {
+   app.use('/products', productRouter.setProductApis());
+   app.get('/get', productRouter.getAllProducts());
   }
 
   /**

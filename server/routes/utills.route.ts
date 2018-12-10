@@ -6,6 +6,7 @@
 
 import * as fs from 'fs';
 import { User } from '../models/user.model';
+import { Product } from '../models/product.interface';
 
 export class UtilsAPI {
 
@@ -18,7 +19,7 @@ export class UtilsAPI {
         });
     }
 
-    async loadJSONAsync(filename: string): Promise<User> {
+    async loadJSONAsync(filename: string): Promise<User | Product> {
         return this.readFileAsync(filename)
             .then(async (res) => {
                 return await JSON.parse(res);
