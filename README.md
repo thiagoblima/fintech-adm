@@ -18,6 +18,18 @@ What things you need to install the software and how to install them
 Nodejs, NPM, TypeScript, GitBash or Linux command line interface, VSCode or your preferred Code Editor - Latest 
 ```
 
+This project uses TypeScript compiler, if you still don't use it, please install it as global:
+
+```
+npm install -g typescript
+```
+
+This project uses *angular-cli*, if you still don't have it installed, please install:
+
+```
+npm install -g @angular/cli
+```
+
 ### Building process
 
 Type Script compiler options are shown as such:
@@ -53,6 +65,9 @@ Type Script compiler options are shown as such:
 
 ### Installing
 
+
+Back-end installation:
+
 A step by step series of examples that tell you how to get a development env running
 
 Say what the step will be
@@ -60,6 +75,29 @@ Say what the step will be
 ```
 npm run init-project
 ```
+
+After this the server will be listening on port 3412 and this message with the object should be shown:
+
+```
+Microservice listening on:
+ { port: '3412' }
+
+```
+
+Now you just need to to npm install the *front-end* at this directory:
+
+Once under `client/src/app` just run: *npm install*.
+
+Generating *front-end* source code:
+
+```
+ng build --prod
+```
+
+Now you can open *localhost:3412* 
+
+If everything goes right, angular router will redirect you to *localhost:3412/home*.
+
 
 ## Running the tests
 

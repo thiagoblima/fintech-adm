@@ -13,6 +13,9 @@
     "Angular",
     "Financial"
   ],
+  "scripts": {
+    "init-project": "rm -rf node_modules && npm install && tsc && node app"
+  },
   "author": "Thiago Lima",
   "license": "ISC",
   "dependencies": {
