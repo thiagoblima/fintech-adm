@@ -10,11 +10,11 @@ export class UserService {
     private actionUrl: string;
 
     constructor(private http: HttpClient, private configuration: Configuration) {
-        this.actionUrl = configuration.serverWithApiUrl + 'users/';
+        this.actionUrl = configuration.serverWithApiUrl;
     }
 
     public getAllUsers<T>(): Observable<T> {
-        return this.http.get<T>(this.actionUrl + '/get');
+        return this.http.get<T>(this.actionUrl + 'get');
     }
 
     public getSingle<T>(id: number): Observable<T> {

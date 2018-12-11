@@ -8,11 +8,13 @@
 
 
 export interface User {
-    firstName: string;
-    lastName: string;
-    preferredName: string;
-    email: string;
-    age: number;
-    gender: string;
-    photo: string;
+    users: {
+        firstName: string;
+        lastName: string;
+        preferredName: string;
+        email: string;
+        age: number;
+        gender: string;
+        photo: string;
+    };
 }

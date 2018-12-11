@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
-import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +7,7 @@ import { User } from 'src/app/models/user.model';
 })
 export class HeaderComponent implements OnInit {
   public grupoEconomico: Array<Object>;
-  public users: User;
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit() {
     this.grupoEconomico = [
@@ -23,8 +20,6 @@ export class HeaderComponent implements OnInit {
         group: 2
       }
     ];
-
-    this.userService.getAllUsers().subscribe((users: User) => this.users = users);
 
   }
 

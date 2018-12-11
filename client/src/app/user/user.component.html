@@ -1,0 +1,9 @@
+<section class="usuarios">
+  <mat-form-field>
+    <mat-select placeholder="Selecione um usuário">
+      <mat-option *ngFor="let user of users.users" [value]="user.firstName">
+        {{user.firstName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</section>
