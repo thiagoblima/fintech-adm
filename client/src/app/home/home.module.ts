@@ -24,6 +24,10 @@ import {
   MatTableModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// Services
+import { UserService } from '../services/user.service';
+import { Configuration } from '../config/config';
+
 @NgModule({
   imports: [
     FormsModule,
@@ -42,6 +46,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatPaginatorModule,
   ],
   providers: [
+    UserService,
+    Configuration
   ],
   declarations: [
     HeaderComponent,
