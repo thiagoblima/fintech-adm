@@ -1,0 +1,10 @@
+<section id="search">
+  <form [formGroup]="searchForm" (ngSubmit)="submitInstance()">
+    <label>
+      <input type="text" formControlName="search" placeholder="Pesquise Aqui">
+      <button type="button" class="btn btn-color">
+        <i class="fa fa-search search-button-color"></i>
+      </button>
+    </label>
+  </form>
+</section>

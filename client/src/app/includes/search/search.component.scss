@@ -1,0 +1,28 @@
+$searchColor: #D3D3D3;
+$btn-color: #ffffff;
+$dark-color: #000000; 
+$search-box-height: 10;
+
+
+#search {
+    height: $search-box-height * 10px;
+    border-right: 2px solid $dark-color;
+}
+
+form {
+    line-height: $search-box-height * 10px;
+    padding-left: $search-box-height * 15px;
+}
+
+input {
+    border: none;
+    height: 20px;
+}
+
+.search-button-color {
+    color: $searchColor !important;
+}
+
+.btn-color {
+    background-color: $btn-color !important;
+}

@@ -1,0 +1,15 @@
+<header class="col-md-12">
+   <app-search></app-search>
+   <img src="./assets/srm-logo.jpg" class="srm-logo" alt="srm-logo">
+  
+   <section class="grupo-economico">
+      <h6>Grupo Econômico:</h6>
+     <mat-form-field>
+        <mat-select placeholder="Selecione um grupo econômico">
+          <mat-option *ngFor="let group of grupoEconomico" [value]="group.name">
+            {{group.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+   </section>
+</header>

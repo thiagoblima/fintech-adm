@@ -1,16 +1,15 @@
 /**
- * @name       : userRouter
+ * @name       : homeRouter
  * @author     : <thiagolimasp@live.com> Thiago Lima
- * @description: User REST API, all user auth endpoints.
+ * @description: User REST API, all home auth endpoints.
  */
 
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-import { Product } from '../models/product.interface';
 import { LoggerService } from '../middleware/logger.service';
 import { UtilsAPI } from './utills.route';
 
-export class ProductAPI extends UtilsAPI {
+export class HomeAPI extends UtilsAPI {
     constructor(private app: express.Router) {
         super();
         this.bodyParserInit(app);
@@ -23,7 +22,7 @@ export class ProductAPI extends UtilsAPI {
 
     public setProductApis() {
         return [
-            this.getAllProducts()
+            this.getHomeRoute()
         ];
     }
 
@@ -46,20 +45,20 @@ export class ProductAPI extends UtilsAPI {
      * @param {Object} res HTTP response object.
      */
 
-    public getAllProducts() {
+    public getHomeRoute() {
         const loggerService = new LoggerService({});
-        return (req: express.Request, res: express.Response) => {
-               this.loadJSONAsync('./database/products.collection.json')
-               .then(async (products: Product) =>{
-                    await res.status(200).json(products);
-                    await loggerService.getLogResultData('consuming products api: ', products);
-               })
-               .catch(err => res.status(500).json(err));
+        return async (req: express.Request, res: express.Response) => {
+            return {
+                greetings: await res.status(200).json({ user: loggerService.getLogResultData('Hello user:', { 
+                    greeting: 'Hi user you acessed the page from the server side'
+                }) })
             }
+
+        }
     }
 
 }
 
-const productRouter = new ProductAPI(express.Router());
+const homeRouter = new HomeAPI(express.Router());
 
-export default productRouter;
+export default homeRouter;

@@ -8,6 +8,7 @@ import * as express from "express";
 import userRouter from './routes/user.route';
 import productRouter from './routes/product.route';
 import alertRouter from './routes/alert.route';
+import homeRouter from './routes/home.route';
 import requestLogger from "./middleware/requestLogger";
 
 export class Server {
@@ -20,10 +21,15 @@ export class Server {
     this.configureUserRoutes(app);
     this.configureProductRoutes(app);
     this.configureAlertRoutes(app);
+    this.configureHomeRoutes(app);
   }
 
   private configureMiddleware(app: express.Express) {
     app.use(requestLogger);
+  }
+
+  private configureHomeRoutes(app: express.Router) {
+    app.get('/home', homeRouter.getHomeRoute());
   }
 
   private configureUserRoutes(app: express.Router) {
