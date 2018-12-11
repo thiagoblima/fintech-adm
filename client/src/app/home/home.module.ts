@@ -28,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Configuration } from '../config/config';
 import { UserComponent } from '../user/user.component';
+import { ContentComponent } from '../includes/content/content.component';
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { UserComponent } from '../user/user.component';
     NavComponent,
     HomeComponent,
     SearchComponent,
-    UserComponent
+    UserComponent,
+    ContentComponent
 ]
 })
 

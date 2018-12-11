@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
